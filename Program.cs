@@ -38,7 +38,7 @@ namespace hello_console
 
             for (DateTime current = start; current <= end; current = current.AddDays(1))
             {
-                if (!Array.Exists(holidays, element => element.Equals(current))) {
+                if (!isHoliday(current, holidays) && !isWeekend(current)) {
                     days++;
                 }
             }
@@ -50,5 +50,15 @@ namespace hello_console
         {
             return CountWorkingDays(range.Start, range.End, holidays);
         }
+
+        public static bool isHoliday(DateTime date, DateTime[] holidays) 
+        {
+            return Array.Exists(holidays, element => element.Equals(date));
+        }
+
+        public static bool isWeekend(DateTime date)
+        {
+            return (date.DayOfWeek == DayOfWeek.Saturday) && (date.DayOfWeek == DayOfWeek.Sunday);
+        }        
     }
 }
