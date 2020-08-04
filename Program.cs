@@ -29,7 +29,7 @@ namespace hello_console
 
             int dayRange = CountWorkingDays(range, holidays);
 
-            Console.WriteLine("Range date counter: " + day);
+            Console.WriteLine("Range date counter: " + dayRange);
         }
 
         public static int CountWorkingDays(DateTime start, DateTime end, DateTime[] holidays) 
